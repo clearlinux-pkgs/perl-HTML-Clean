@@ -4,7 +4,7 @@
 #
 Name     : perl-HTML-Clean
 Version  : 0.8
-Release  : 3
+Release  : 4
 URL      : https://cpan.metacpan.org/authors/id/L/LI/LINDNER/HTML-Clean-0.8.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/L/LI/LINDNER/HTML-Clean-0.8.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libh/libhtml-clean-perl/libhtml-clean-perl_0.8-12.debian.tar.xz
