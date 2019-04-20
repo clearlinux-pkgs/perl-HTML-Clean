@@ -4,11 +4,11 @@
 #
 Name     : perl-HTML-Clean
 Version  : 0.8
-Release  : 10
+Release  : 11
 URL      : https://cpan.metacpan.org/authors/id/L/LI/LINDNER/HTML-Clean-0.8.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/L/LI/LINDNER/HTML-Clean-0.8.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libh/libhtml-clean-perl/libhtml-clean-perl_0.8-12.debian.tar.xz
-Summary  : No detailed summary available
+Summary  : Cleans up HTML code for web browsers, not humans
 Group    : Development/Tools
 License  : Artistic-1.0 GPL-1.0
 Requires: perl-HTML-Clean-bin = %{version}-%{release}
@@ -24,7 +24,6 @@ HTML::Clean - Cleans up HTML code for web browsers, not humans
 Summary: bin components for the perl-HTML-Clean package.
 Group: Binaries
 Requires: perl-HTML-Clean-license = %{version}-%{release}
-Requires: perl-HTML-Clean-man = %{version}-%{release}
 
 %description bin
 bin components for the perl-HTML-Clean package.
@@ -35,6 +34,7 @@ Summary: dev components for the perl-HTML-Clean package.
 Group: Development
 Requires: perl-HTML-Clean-bin = %{version}-%{release}
 Provides: perl-HTML-Clean-devel = %{version}-%{release}
+Requires: perl-HTML-Clean = %{version}-%{release}
 
 %description dev
 dev components for the perl-HTML-Clean package.
