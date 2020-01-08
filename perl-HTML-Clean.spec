@@ -4,16 +4,17 @@
 #
 Name     : perl-HTML-Clean
 Version  : 1.4
-Release  : 16
+Release  : 17
 URL      : https://cpan.metacpan.org/authors/id/A/AZ/AZJADFTRE/HTML-Clean-1.4.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/A/AZ/AZJADFTRE/HTML-Clean-1.4.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libh/libhtml-clean-perl/libhtml-clean-perl_0.8-12.debian.tar.xz
-Summary  : Cleans up HTML code for web browsers, not humans
+Summary  : HTML::Clean - Cleans up HTML code for web browsers, not humans
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
 Requires: perl-HTML-Clean-bin = %{version}-%{release}
 Requires: perl-HTML-Clean-license = %{version}-%{release}
 Requires: perl-HTML-Clean-man = %{version}-%{release}
+Requires: perl-HTML-Clean-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 
 %description
@@ -34,7 +35,6 @@ Summary: dev components for the perl-HTML-Clean package.
 Group: Development
 Requires: perl-HTML-Clean-bin = %{version}-%{release}
 Provides: perl-HTML-Clean-devel = %{version}-%{release}
-Requires: perl-HTML-Clean = %{version}-%{release}
 Requires: perl-HTML-Clean = %{version}-%{release}
 
 %description dev
@@ -57,12 +57,22 @@ Group: Default
 man components for the perl-HTML-Clean package.
 
 
+%package perl
+Summary: perl components for the perl-HTML-Clean package.
+Group: Default
+Requires: perl-HTML-Clean = %{version}-%{release}
+
+%description perl
+perl components for the perl-HTML-Clean package.
+
+
 %prep
 %setup -q -n HTML-Clean-1.4
-cd ..
-%setup -q -T -D -n HTML-Clean-1.4 -b 1
+cd %{_builddir}
+tar xf %{_sourcedir}/libhtml-clean-perl_0.8-12.debian.tar.xz
+cd %{_builddir}/HTML-Clean-1.4
 mkdir -p deblicense/
-cp -r %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/HTML-Clean-1.4/deblicense/
+cp -r %{_builddir}/debian/* %{_builddir}/HTML-Clean-1.4/deblicense/
 
 %build
 export http_proxy=http://127.0.0.1:9/
@@ -87,7 +97,7 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-HTML-Clean
-cp deblicense/copyright %{buildroot}/usr/share/package-licenses/perl-HTML-Clean/deblicense_copyright
+cp %{_builddir}/HTML-Clean-1.4/deblicense/copyright %{buildroot}/usr/share/package-licenses/perl-HTML-Clean/d6471ff660cd7bcc0346ce3ef130ec74d834008d
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -100,8 +110,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/HTML/Clean.pm
-/usr/lib/perl5/vendor_perl/5.28.2/auto/HTML/Clean/autosplit.ix
 
 %files bin
 %defattr(-,root,root,-)
@@ -113,8 +121,13 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/perl-HTML-Clean/deblicense_copyright
+/usr/share/package-licenses/perl-HTML-Clean/d6471ff660cd7bcc0346ce3ef130ec74d834008d
 
 %files man
 %defattr(0644,root,root,0755)
 /usr/share/man/man1/htmlclean.1
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/HTML/Clean.pm
+/usr/lib/perl5/vendor_perl/5.30.1/auto/HTML/Clean/autosplit.ix
