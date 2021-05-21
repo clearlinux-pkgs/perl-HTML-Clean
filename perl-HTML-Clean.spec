@@ -129,5 +129,5 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.32.1/HTML/Clean.pm
-/usr/lib/perl5/vendor_perl/5.32.1/auto/HTML/Clean/autosplit.ix
+/usr/lib/perl5/vendor_perl/5.34.0/HTML/Clean.pm
+/usr/lib/perl5/vendor_perl/5.34.0/auto/HTML/Clean/autosplit.ix
