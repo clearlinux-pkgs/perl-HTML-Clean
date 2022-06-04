@@ -4,7 +4,7 @@
 #
 Name     : perl-HTML-Clean
 Version  : 1.4
-Release  : 26
+Release  : 27
 URL      : https://cpan.metacpan.org/authors/id/A/AZ/AZJADFTRE/HTML-Clean-1.4.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/A/AZ/AZJADFTRE/HTML-Clean-1.4.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libh/libhtml-clean-perl/libhtml-clean-perl_0.8-12.debian.tar.xz
@@ -129,5 +129,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.34.0/HTML/Clean.pm
-/usr/lib/perl5/vendor_perl/5.34.0/auto/HTML/Clean/autosplit.ix
+/usr/lib/perl5/*
